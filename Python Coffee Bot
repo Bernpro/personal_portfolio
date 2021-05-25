@@ -1,0 +1,139 @@
+
+
+
+#Author: Bernardo Bernal 
+
+
+import simplegui
+
+message = "Welcome!"
+
+# Handler for mouse click
+def click():
+    global message
+    message = "Good job!"
+
+# Handler to draw on canvas
+def draw(canvas):
+    canvas.draw_text(message, [50,112], 48, "Red")
+
+# Create a frame and assign callbacks to event handlers
+frame = simplegui.create_frame("Home", 300, 200)
+frame.add_button("Click me", click)
+frame.set_draw_handler(draw)
+
+# Start the frame animation
+frame.start()
+
+
+
+def coffee_bot():
+    welcome_message()
+    order_taking()
+    
+
+    name = input("\nCan I get your name please? ")
+
+    print("\nThanks, {}! Please proceed to the pick up counter for your order!".format(name))
+
+def welcome_message():
+    print("Welcome to the Starbucks! \n\nToday's specials are Cherry Blossom Frappuccino and Nitro Cold Brew.")
+
+
+def order_taking(orders = []):
+    size = get_size()
+    temp_type = hot_or_iced()
+    drink_type = get_drink_type()
+    cup_type = cup_options()
+    quantity = get_quantity()
+    orders.append([quantity, size, temp_type, drink_type, cup_type])
+    
+    print("\n" + str(orders))
+    print("\nAlright, that\'s {} {} {} {} {}!".format(quantity, size, temp_type, drink_type, cup_type))
+    addon_prompt()
+    
+def addon_prompt():
+    res = input("\nDo you wish to add another order? \n[a] Yes \n[b] No \n> ")
+    res = res.lower()
+    if res == "a":
+        print("\nAlright, taking your new order!")
+        return order_taking()
+    else:
+        print("\nAlright, processing your orders now!")
+
+def error_message():
+    print("\nI'm sorry, I did not understand your selection.\n\nPlease enter the corresponding letter for your response.")
+
+def get_size():
+    res = input('\nWhat size drink can I get for you? \n[a] Small \n[b] Medium \n[c] Large \n> ')
+    res = res.lower()
+    if res == "a":
+        return "Small"
+    elif res == "b":
+        return "Medium"
+    elif res == "c":
+        return "Large"
+    else:
+        error_message()
+        return get_size()
+
+def get_drink_type():
+    res = input("\nWhat type of drink would you like?\n[a] Brewed Coffee \n[b] Mocha \n[c] Latte \n> ")
+    res = res.lower()
+    if res == "a":
+        return "Brewed Coffee"
+    elif res == "b":
+        return "Mocha"
+    elif res == "c":
+        return order_latte()
+    else:
+        error_message()
+        return get_drink_type()
+
+def order_latte():
+    res = input("\nAnd what kind of milk for your latte? \n[a] 2% milk \n[b] Non-fat milk \n[c] Soy milk \n> ")
+    res = res.lower()
+    if res == "a":
+        return "Latte"
+    elif res == "b":
+        return "Non-fat Latte"
+    elif res == "c":
+        return "Soy Latte"
+    else:
+        error_message()
+        return order_latte()
+
+def hot_or_iced():
+    res = input("\nHow would you like your drink? \n[a] Hot \n[b] Iced \n> ")
+    res = res.lower()
+    if res == "a":
+        return "Hot"
+    elif res == "b":
+        return "Iced"
+    else:
+        error_message()
+        return hot_or_iced()
+
+def cup_options():
+    res = input("\nWhat type of cup would you like to use?\n[a] Dine-in Cup \n[b] Takeaway Cup \n[c] Your own Reusable Cup \n> ")
+    res = res.lower()
+    if res == "a":
+        return "in a dine-in cup"
+    elif res == "b":
+        return "in a takeaway cup."
+    elif res == "c":
+        return "in your reusable cup."
+    else:
+        error_message()
+        return cup_options()
+
+def get_quantity():
+    res = input("\nWhat is quantity for this order? > ")
+    try:
+        res = int(res)
+        return res
+    except ValueError:
+        print("\nInvalid input. Please enter a value quantity.")
+        return get_quantity()
+
+coffee_bot()
