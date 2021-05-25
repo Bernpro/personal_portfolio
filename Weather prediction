@@ -1,0 +1,13 @@
+//this code will predict the weather and will convert from Klvin to Celsius then to Fahrenheit.
+
+const kelvin = 293;
+const celsius = kelvin - 273;
+
+//conversion from Kelvin to Celsius
+
+let fahrenheit = celsius * (9 / 5) + 32;
+
+fahrenheit = Math.floor(fahrenheit);
+//rounding the number  since conversion from Celsius to Fahrenheit always comes out like a decimal. 
+
+console.log(`The temperature is ${fahrenheit} degrees Fahrenheit.`);
