@@ -1,0 +1,32 @@
+myAge = 39;
+
+//my age as it is
+
+earlyYears = 2;
+
+//first 2 years of a dog's life.
+
+earlyYears *= 10.5;
+
+let laterYears = myAge - 2;
+//it is what it is. Subtract 2 from my age.
+
+laterYears *= 4;
+
+console.log(earlyYears);
+
+console.log(laterYears);
+
+MyAgeInDogYears = earlyYears + laterYears;
+
+//adding them together.
+ 
+
+
+
+
+
+let myName = 'Bernardo'.toLowerCase();
+
+console.log(`My name is ${myName}.                    
+ `);
