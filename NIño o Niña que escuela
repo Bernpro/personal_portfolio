@@ -1,0 +1,33 @@
+
+
+
+
+# Determinar a que escuela va el niño o niña
+choice = ''
+
+# Start a loop that runs until the user enters the value for 'quit'.
+while choice != 'q':
+    # Give all the choices in a series of print statements.
+    print("\n[3] puede ir a guarderia.")
+    print("[5] puede ir a kinder.")
+    print("[7] puede ir a la primaria.")
+    print("[q] Enter q to quit.")
+   
+    # Ask for the user's choice.
+    choice = input("\nque edad tiene?")
+   
+    # Respond to the user's choice.
+    if choice == '3':
+        print("\nguarderia. Have fun!\n")
+    elif choice == '5':
+        print("\nkinder!\n")
+    elif choice == '7':
+        print("\nquiere ir a la primaria?\n")
+    elif choice == 'q':
+        print("\nThanks for playing. See you later.\n")
+    else:
+        print("\nno entiendo su edad.\n")
+       
+# Print a message that we are all finished.
+print("Thanks again, bye now.")
+
