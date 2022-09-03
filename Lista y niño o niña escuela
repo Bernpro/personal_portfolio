@@ -1,0 +1,49 @@
+@Lista y si el niño a donde va de escuela
+
+list = ("book", "pen", "computer")
+
+print(list)
+
+
+
+redlist = ["apple", "banana", "cherry"]
+[print(x) for x in redlist]
+
+#agregar la palabra orange o naranja a la lista
+#usando el metodo append
+redlist = ["apple", "banana", "cherry"]
+redlist.append("orange")
+print(redlist)
+
+#remover la palabra apple o manzana a la lista
+#usando el metodo remove
+
+redlist = ["apple", "banana", "cherry", "orange"]
+redlist.remove("apple")
+print(redlist)
+
+
+
+
+#sin ver apuntes ni nada.
+
+#si el chamaco tiene 3 años
+
+chamaco_age = 3
+
+#pero para entrar al kinder debe tener 5
+kinder_age = 5
+
+#mejor preguntar que edad tiene
+
+
+
+if chamaco_age < kinder_age:
+    print("el chamaco debe ir a guarderia baboso")
+
+elif chamaco_age == kinder_age:
+    print("vayase al kinder")
+else:
+    print("debe ir a otra clase")
+
+#en este caso la primera condicion es verdadera no tiene 5
